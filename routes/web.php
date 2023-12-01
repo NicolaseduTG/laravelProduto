@@ -48,3 +48,13 @@ Route::get('/usuarios/excluir/{id}', [UsuarioController::class,
 
 //rota que redireciona para tela de produtos
 Route::get('/produtos', [ProdutoController::class, 'indexProduto'])->name('produtos.index');
+
+Route::get('/produtos/cadastro', [ProdutoController::class, 'cadastroProduto'])->name('produtos.cadastro');
+
+Route::post('/produtos/novo', [ProdutoController::class, 'novoProduto'])->name('produtos.novo');
+
+Route::get('/produtos/alterar/{id}', [ProdutoController::class, 'telaAlteracaoProduto'])->name('produto.atualiza');
+
+Route::post('/produtos/alterar/{id}', [ProdutoController::class, 'alterarProduto'])->name('produto.alterar');
+
+Route::get('/produtos/excluir/{id}', [ProdutoController::class, 'excluirProduto'])->name('produto.excluir');

@@ -21,5 +21,50 @@
 </nav>
 
 <div class="container">
-  <h1>Produtos</h1>
+    <h1>Produtos</h1>
+    <div class="table-responsive">
+        <a class="btn btn-success" href="{{route('produtos.cadastro')}}">Adicionar</a>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Descricao</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Categoria</th>
+                    <th>Estado</th>
+                    <th>Acoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($produto as $produto)
+                <tr>
+                    <td>{{ $produto->id }}</td>
+                    <td>{{ $produto->nome }}</td>
+                    <td>{{ $produto->descricao }}</td>
+                    <td>{{ $produto->quantidade }}</td>
+                    <td>{{ $produto->valor }}</td>
+                    <td>{{ $produto->categoria }}</td>
+                    <td>{{ $produto->estado }}</td>
+                    <td>
+                      <a class="btn btn-warning" href="{{route('produto.atualiza', ['id' => $produto->id])}}">Alterar</a>
+                      <a class="btn btn-danger" href="#" onclick="excluir({{ $produto->id }})">Excluir</a>
+                    </td>
+                </tr>
+                @endforeach
+
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script>
+    function excluir(id){ 
+        if (confirm(`Deseja excluir o produto de id '${id}'?`)) {
+            location.href = '/produtos/excluir/' + id;
+        }
+    }
+</script>

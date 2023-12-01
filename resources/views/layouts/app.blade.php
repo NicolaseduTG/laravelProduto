@@ -15,6 +15,8 @@
     @yield('login')
     @yield('alteracao')
     @yield('produtos')
+    @yield('cadastroProduto')
+    @yield('alteracaoProduto')
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
